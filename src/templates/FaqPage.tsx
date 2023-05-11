@@ -63,7 +63,7 @@ export const config: TemplateConfig = {
 
 
 export const getPath: GetPath<TemplateProps> = () => {
-  return "/faq";
+  return "/faqs";
 };
 
 export const getHeadConfig: GetHeadConfig<
