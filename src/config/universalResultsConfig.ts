@@ -13,7 +13,7 @@ export type UniversalResultsConfig = Record<string, VerticalConfig>;
 export const universalResultsConfig: UniversalResultsConfig = {
   
   products: {
-    SectionComponent:ProductsSection,
+    SectionComponent:ProductsCard,
     label: 'Products',
     viewAllButton: true,
     cardConfig: {
@@ -22,7 +22,7 @@ export const universalResultsConfig: UniversalResultsConfig = {
     }
   },
   articles: {
-    // StandardCardProps:ArticlesCard,
+    // SectionComponent:ArticlesCard,
     label: 'Articles',
     viewAllButton: true,
     cardConfig: {
@@ -30,8 +30,8 @@ export const universalResultsConfig: UniversalResultsConfig = {
       showOrdinal: false
     }
   },
-  faq: {
-    // StandardCardProps:FaqCard,
+  faqs: {
+    // SectionComponent:FaqCard,
     label: 'FAQ',
     viewAllButton: true,
     cardConfig: {
