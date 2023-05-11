@@ -22,7 +22,7 @@ export const universalResultsConfig: UniversalResultsConfig = {
     }
   },
   articles: {
-    // StandardCardProps:ArticlesCard,
+    StandardCardProps:ArticlesCard,
     label: 'Articles',
     viewAllButton: true,
     cardConfig: {
@@ -30,8 +30,8 @@ export const universalResultsConfig: UniversalResultsConfig = {
       showOrdinal: false
     }
   },
-  faq: {
-    // StandardCardProps:FaqCard,
+  faqs: {
+    StandardCardProps:FaqCard,
     label: 'FAQ',
     viewAllButton: true,
     cardConfig: {
