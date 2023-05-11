@@ -13,7 +13,7 @@ export type UniversalResultsConfig = Record<string, VerticalConfig>;
 export const universalResultsConfig: UniversalResultsConfig = {
   
   products: {
-    SectionComponent:ProductsCard,
+    SectionComponent:ProductsSection,
     label: 'Products',
     viewAllButton: true,
     cardConfig: {
