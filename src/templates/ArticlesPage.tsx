@@ -69,7 +69,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
   };
 };
 
-answersHeadlessConfig.verticalKey = "ce_articles";
+answersHeadlessConfig.verticalKey = "articles";
 const searcher = provideHeadless(answersHeadlessConfig);
 
 const ArticlesPage: Template<TemplateRenderProps> = ({
