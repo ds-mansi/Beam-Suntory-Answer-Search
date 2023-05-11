@@ -58,7 +58,7 @@ interface CtaData {
  *
  * @param props - An object containing the result itself.
  */
-export function ProductsCard(props: StandardCardProps): JSX.Element | null {
+export function ProductsCard(props: StandardCardProps): JSX.Element {
 
   const { configuration, result, customCssClasses, cssCompositionMethod } =
     props;
