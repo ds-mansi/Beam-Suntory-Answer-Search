@@ -37,7 +37,7 @@ import Footer from "../components/commons/footer";
 
 export const config: TemplateConfig = {
   stream: {
-    $id: "ce_articles",
+    $id: "articles",
     // Specifies the exact data that each generated document will contain. This data is passed in
     // directly as props to the default exported function.
     fields: ["id", "uid", "meta", "name"],
