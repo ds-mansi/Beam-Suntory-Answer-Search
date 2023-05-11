@@ -64,7 +64,7 @@ export const config: TemplateConfig = {
 };
 
 const universalResultsFilterConfig = {
-  show: false
+  show: true
 };
 
 export const getPath: GetPath<TemplateProps> = () => {
@@ -116,7 +116,7 @@ const IndexPage: Template<TemplateRenderProps> = ({
             appliedFiltersConfig={universalResultsFilterConfig}
             verticalConfigs={universalResultsConfig}
           />
-          {}
+         
         </div>
         <Pagination />
       </div>

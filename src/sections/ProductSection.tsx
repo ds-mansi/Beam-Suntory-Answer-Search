@@ -1,44 +1,49 @@
-import { SectionComponent, SectionConfig } from '../models/sectionComponent';
-import { StandardCard } from '../components/cards/StandardCard';
-import { CompositionMethod, useComposedCssClasses } from '../hooks/useComposedCssClasses';
-import React, { useContext } from 'react';
+import { SectionComponent, SectionConfig } from "../models/sectionComponent";
+import { StandardCard } from "../components/cards/StandardCard";
+import {
+  CompositionMethod,
+  useComposedCssClasses,
+} from "../hooks/useComposedCssClasses";
+import React, { useContext } from "react";
 import { useSearchState } from "@yext/search-headless-react";
 
-import ProductVerticalResults from '../components/ProductVerticalResults';
-import { ProductsCard } from '../components/cards/ProductsCard';
-import ProductPage from '../pages/ProductPage';
+import ProductVerticalResults from "../components/ProductVerticalResults";
+import { ProductsCard } from "../components/cards/ProductsCard";
+import ProductPage from "../templates/ProductPage";
 // import '../sass/style.css'
 interface ProductsSectionCssClasses {
-    container?: string,
-    header?: string,
-    body?: string,
-    descriptionContainer?: string,
-    ctaContainer?: string,
-    cta1?: string,
-    cta2?: string,
-    ordinal?: string,
-    title?: string,
-    ctaButton?: string,
-    section?: string
+  container?: string;
+  header?: string;
+  body?: string;
+  descriptionContainer?: string;
+  ctaContainer?: string;
+  cta1?: string;
+  cta2?: string;
+  ordinal?: string;
+  title?: string;
+  ctaButton?: string;
+  section?: string;
 }
 
 const builtInCssClasses: ProductsSectionCssClasses = {
-    container: 'justify-between border rounded-lg mb-4 p-4 shadow-sm flex flex-row ProductVerticalContainer',
-    header: 'text-grey-800 ProductHeaderClass',
-    body: 'flex justify-end pt-2.5',
-    descriptionContainer: 'w-full text-base',
-    ctaContainer: 'flex flex-col justify-end ml-4',
-    cta1: 'min-w-max bg-blue-600 text-white font-medium rounded-lg py-2 px-5 shadow',
-    cta2: 'min-w-max bg-white text-blue-600 font-medium rounded-lg py-2 px-5 mt-2 shadow',
-    ordinal: 'mr-1.5 text-lg font-medium',
-    title: 'text-lg font-bold text-black-800',
-    ctaButton: 'flex justify-center border-2 w-full rounded-md self-center	align-middle mt-4 hover:bg-green-900',
-    section: ''
+  container:
+    "justify-between border rounded-lg mb-4 p-4 shadow-sm flex flex-row ProductVerticalContainer",
+  header: "text-grey-800 ProductHeaderClass",
+  body: "flex justify-end pt-2.5",
+  descriptionContainer: "w-full text-base",
+  ctaContainer: "flex flex-col justify-end ml-4",
+  cta1: "min-w-max bg-blue-600 text-white font-medium rounded-lg py-2 px-5 shadow",
+  cta2: "min-w-max bg-white text-blue-600 font-medium rounded-lg py-2 px-5 mt-2 shadow",
+  ordinal: "mr-1.5 text-lg font-medium",
+  title: "text-lg font-bold text-black-800",
+  ctaButton:
+    "flex justify-center border-2 w-full rounded-md self-center	align-middle mt-4 hover:bg-green-900",
+  section: "",
 };
 
 interface ProductsSectionConfig extends SectionConfig {
-    customCssClasses?: ProductsSectionCssClasses,
-    compositionmethod?: CompositionMethod
+  customCssClasses?: ProductsSectionCssClasses;
+  compositionmethod?: CompositionMethod;
 }
 
 /**
@@ -46,70 +51,74 @@ interface ProductsSectionConfig extends SectionConfig {
  * @param props results, header
  * @returns Cards of Product Vertical on Universal Page.
  */
-const ProductsSection: SectionComponent = function (props: ProductsSectionConfig): JSX.Element | null {
+const ProductsSection: SectionComponent = function (
+  props: ProductsSectionConfig
+): JSX.Element | null {
+  const cssClasses = useComposedCssClasses(
+    builtInCssClasses,
+    props.customCssClasses,
+    props.compositionmethod
+  );
+  const { results, cardConfig, header } = props;
+  const latestQuery = useSearchState((state) => state.query.mostRecentSearch);
+  const verticalResults: any = useSearchState((state) => state.universal);
+  // console.log('ProductVerticalResults', verticalResults);
+  const ProductVerticalResults: any = verticalResults.verticals[0].results;
 
-    const cssClasses = useComposedCssClasses(builtInCssClasses, props.customCssClasses, props.compositionmethod);
-    const { results, cardConfig, header } = props;
-    const latestQuery = useSearchState((state) => state.query.mostRecentSearch);
-    const verticalResults: any = useSearchState(state => state.universal);
-    // console.log('ProductVerticalResults', verticalResults);
-    const ProductVerticalResults: any = verticalResults.verticals[0].results;
-    
-    let ProductResultsObj: any = '';
-    ProductResultsObj = ProductVerticalResults.map((_elements: any) => {
-        return _elements.rawData;
-    });
-       /**
+  let ProductResultsObj: any = "";
+  ProductResultsObj = ProductVerticalResults.map((_elements: any) => {
+    return _elements.rawData;
+  });
+  /**
    * This function limits the words
-   * @param string 
-   * @param limit 
+   * @param string
+   * @param limit
    * @returns The variable containing the truncated Description.
    */
-function limit(string = ' ', limit = 0) {
-    return string.substring(0, limit)
+  function limit(string = " ", limit = 0) {
+    return string.substring(0, limit);
   }
-    ProductResultsObj = ProductResultsObj.map((res: any) => {
-        
-         const productName = res.name;
-         const productLandingPageUrl = res.landingPageUrl;
-         const productDescription = res.description;
-         const productSpeed = res.c_speed;
-         const productPrice = res.c_product_price;
-        console.log(productName,"productsection")
-        return (
-            <>
-                <div>
-                    {/* <img className='ProductsImage' src={ProductImage}></img> */}
-                    {/* <h1 className={builtInCssClasses.title}>{productName}</h1> */}
-                    <p>{productSpeed}</p>
-                    <p>Price : £ {productPrice}</p>
-                    <p>{productDescription}</p>
-                    <a target="_blank" href={productLandingPageUrl}>
-                        <div className={cssClasses.ctaButton}>
-                            <div className="sm:text-body align-middle font-heading  font-medium sm:text-base">View Product</div>
-                        </div>
-                    </a>
-                </div>
-            </>
-        );
-
-    })
-
-    if (results.length === 0) {
-        return null;
-    }
-
-    const cardComponent = cardConfig?.CardComponent || StandardCard;
-
-
+  ProductResultsObj = ProductResultsObj.map((res: any) => {
+    console.log(res.c_productCard, "Card");
+    const productName = res.c_productCard.heading;
+    const productDescription = res.c_productCard.description;
+    const productImage = res.c_productCard.image;
+    const productCta = res.c_productCard.cta;
+    console.log(productName, "productsection");
     return (
-        <>
-            <section className={cssClasses.section}>
-                {header}
-                <div className='grid grid-rows-2 grid-flow-col gap-2'>{ProductResultsObj}</div>
-            </section>
-        </>
+      <>
+        <div>
+          {/* <img className='ProductsImage' src={ProductImage}></img> */}
+          <h1 className={builtInCssClasses.title}>{productName}</h1>
+          <img src={productImage.url} />
+          <p>{productDescription}</p>
+          <a target="_blank" href={productCta.url}>
+            <div className={cssClasses.ctaButton}>
+              <div className="sm:text-body align-middle font-heading  font-medium sm:text-base">
+                {productCta.label}
+              </div>
+            </div>
+          </a>
+        </div>
+      </>
     );
+  });
+
+  if (results.length === 0) {
+    return null;
+  }
+
+  const cardComponent = cardConfig?.CardComponent || StandardCard;
+
+  return (
+    <>
+      <section className={cssClasses.section}>
+        {header}
+        <div className="grid grid-rows-2 grid-flow-col gap-2">
+          {ProductResultsObj}
+        </div>
+      </section>
+    </>
+  );
 };
 export default ProductsSection;
-
