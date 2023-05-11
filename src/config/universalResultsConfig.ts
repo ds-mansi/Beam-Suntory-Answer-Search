@@ -29,7 +29,7 @@ export const universalResultsConfig: UniversalResultsConfig = {
       showOrdinal: false
     }
   },
-  faq: {
+  faqs: {
     label: 'FAQ',
     viewAllButton: true,
     cardConfig: {

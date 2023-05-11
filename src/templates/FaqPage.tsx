@@ -34,10 +34,11 @@ import PageLayout from "../components/PageLayout";
 import { answersHeadlessConfig } from '../config/answersHeadlessConfig';
 import Header from "../components/commons/header";
 import Footer from "../components/commons/footer";
+import { FaqCard } from "../components/cards/FaqCards";
 
 export const config: TemplateConfig = {
   stream: {
-    $id: "product",
+    $id: "faqs",
     // Specifies the exact data that each generated document will contain. This data is passed in
     // directly as props to the default exported function.
     fields: [
@@ -45,6 +46,8 @@ export const config: TemplateConfig = {
       "uid",
       "meta",
       "name",
+      "question",
+      "answer"
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
@@ -60,7 +63,7 @@ export const config: TemplateConfig = {
 
 
 export const getPath: GetPath<TemplateProps> = () => {
-  return "/products";
+  return "/faq";
 };
 
 export const getHeadConfig: GetHeadConfig<
@@ -77,10 +80,10 @@ export const getHeadConfig: GetHeadConfig<
   };
 };
 
-answersHeadlessConfig.verticalKey = "products";
+answersHeadlessConfig.verticalKey = "faqs";
 const searcher = provideHeadless(answersHeadlessConfig);
 
-const ProductPage: Template<TemplateRenderProps> = ({
+const FaqPage: Template<TemplateRenderProps> = ({
   relativePrefixToRoot,
   path,
   document,
@@ -104,7 +107,7 @@ const ProductPage: Template<TemplateRenderProps> = ({
 			<SpellCheck />
 			<ResultsCount />
 			<AppliedFilters hiddenFields={['builtin.entityType']} />			
-			<VerticalResults CardComponent={ProductsCard} />
+			<VerticalResults CardComponent={FaqCard} />
 			<LocationBias />
         </div>
         <Pagination />
@@ -115,4 +118,4 @@ const ProductPage: Template<TemplateRenderProps> = ({
   );
 };
 
-export default ProductPage;
+export default FaqPage;

@@ -63,7 +63,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
   document,
 }): HeadConfig => {
   return {
-    title: `Community Fibre | AS`,
+    title: `Beam Suntory`,
     charset: "UTF-8",
     viewport: "width=device-width, initial-scale=1",
   };
