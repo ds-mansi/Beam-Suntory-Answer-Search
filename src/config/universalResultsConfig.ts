@@ -6,6 +6,7 @@ import { VerticalConfig } from '../components/UniversalResults';
 import { LocationCard } from '../components/cards/LocationCard';
 import LocationSection from '../sections/LocationSection';
 import ProductsSection from '../sections/ProductSection';
+import StandardSection from '../sections/StandardSection';
 
 
 export type UniversalResultsConfig = Record<string, VerticalConfig>;
@@ -22,7 +23,7 @@ export const universalResultsConfig: UniversalResultsConfig = {
     }
   },
   articles: {
-    // SectionComponent:ProductsSection,
+    SectionComponent:StandardSection,
     label: 'Articles',
     viewAllButton: true,
     cardConfig: {
