@@ -6,6 +6,7 @@ import { ReactComponent as CollectionIcon } from '../icons/collection.svg';
 import { useSearchState } from '@yext/search-headless-react';
 import { DisplayableFilter } from "../models/displayableFilter";
 import classNames from "classnames";
+import * as React from "react";
 
 interface SectionHeaderCssClasses extends AppliedFiltersCssClasses {
   sectionHeaderContainer?: string,

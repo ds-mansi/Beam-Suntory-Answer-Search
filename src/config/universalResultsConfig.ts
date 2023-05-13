@@ -22,7 +22,7 @@ export const universalResultsConfig: UniversalResultsConfig = {
     }
   },
   articles: {
-    // SectionComponent:ArticlesCard,
+    SectionComponent:ProductsSection,
     label: 'Articles',
     viewAllButton: true,
     cardConfig: {
