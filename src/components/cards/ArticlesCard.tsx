@@ -52,7 +52,7 @@ export function ArticlesCard(props: StandardCardProps): JSX.Element {
   const cssClasses = builtInCssClasses;
 
   const ArticleCard: any = result.rawData;
-  console.log(ArticleCard.c_articleCard.cTA, "Articlebtn");
+  // console.log(ArticleCard.c_articleCard.cTA, "Articlebtn");
   const ArticleDescription = ArticleCard.c_articleCard.description
     ? ArticleCard.c_articleCard.description
     : null;

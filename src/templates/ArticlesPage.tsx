@@ -83,7 +83,7 @@ const ArticlesPage: Template<TemplateRenderProps> = ({
   // const {
   //   _site
   // } = document;
-  console.log(document, "doc");
+  // console.log(document, "doc");
 
   return (
     <>

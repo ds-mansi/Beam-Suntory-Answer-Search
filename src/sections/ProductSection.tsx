@@ -79,12 +79,12 @@ const ProductsSection: SectionComponent = function (
     return string.substring(0, limit);
   }
   ProductResultsObj = ProductResultsObj.map((res: any) => {
-    console.log(res.c_productCard, "Card");
+    // console.log(res.c_productCard, "Card");
     const productName = res.c_productCard.heading;
     const productDescription = res.c_productCard.description;
     const productImage = res.c_productCard.image;
     const productCta = res.c_productCard.cta;
-    console.log(productName, "productsection");
+    // console.log(productName, "productsection");
     return (
       <>
         <div>

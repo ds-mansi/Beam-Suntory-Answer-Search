@@ -94,7 +94,7 @@ export function ProductsCard(props: StandardCardProps): JSX.Element {
     ? Products.c_productCard.cta.label
     : "Product cta";
 
-  console.log(Products.c_productCard.cta.link, "New123");
+  // console.log(Products.c_productCard.cta.link, "New123");
 
   function renderTitle(title: string) {
     return <div className={cssClasses.title}>{title}</div>;

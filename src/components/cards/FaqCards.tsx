@@ -4,7 +4,7 @@ import { CardProps } from "../../models/cardComponent";
 import { useEffect, useState } from "react";
 import * as React from "react";
 // import 'react-loading-skeleton/dist/skeleton.css';
-import { Accordion, AccordionItem } from 'react-light-accordion';
+import { Accordion, AccordionItem } from "react-light-accordion";
 
 //prettier-ignore
 export interface TrainerCardConfig {
@@ -67,22 +67,26 @@ function limit(string?: string, limit = 0) {
 }
 // TODO: format hours, hours to middle, fake CTAs on the right, hours to show current status and then can be expanded, limit to 3 results for now, margin between map
 export function FaqCard(props: TrainerCardProps): JSX.Element {
-console.log(props,'props') 
+  // console.log(props, "props");
 
   return (
     <>
       <div className="faq-sec">
-          <div className="faq-blocks">
-            <Accordion atomic={true}>
-              <AccordionItem className="faq-title" title={props.result.rawData.name}> <span className="faq-icon"></span>
-                <div className="faq-content new-accr">
-                  <p>{props.result.rawData.answer}</p>
-                  </div>
-              </AccordionItem>
-            </Accordion>
-          </div>
+        <div className="faq-blocks">
+          <Accordion atomic={true}>
+            <AccordionItem
+              className="faq-title"
+              title={props.result.rawData.name}
+            >
+              {" "}
+              <span className="faq-icon"></span>
+              <div className="faq-content new-accr">
+                <p>{props.result.rawData.answer}</p>
+              </div>
+            </AccordionItem>
+          </Accordion>
+        </div>
       </div>
     </>
   );
-
 }
