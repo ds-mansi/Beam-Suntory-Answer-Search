@@ -72,6 +72,16 @@
   margin-left: 90px;
   margin-right: 90px;
 }
+
+.accordion-item .panel {
+  display: none;
+}
+
+.accordion-item.active .panel {
+  display: block !important;
+}
+
+
 /* FAQ CSS  - Ends */
 
 /* Header - Start */

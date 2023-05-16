@@ -6,7 +6,7 @@ import {
   GetHeadConfig,
   HeadConfig,
   TemplateProps,
-  TemplateConfig
+  TemplateConfig,
 } from "@yext/pages";
 import "../index.css";
 import {
@@ -25,13 +25,13 @@ import {
   AlternativeVerticals,
   AppliedFilters,
   DirectAnswer,
-  LocationBias
+  LocationBias,
 } from "@yext/search-ui-react";
 
-import { ProductsCard } from '../components/cards/ProductsCard';
-import Navigation from '../components/Navigation';
+import { ProductsCard } from "../components/cards/ProductsCard";
+import Navigation from "../components/Navigation";
 import PageLayout from "../components/PageLayout";
-import { answersHeadlessConfig } from '../config/answersHeadlessConfig';
+import { answersHeadlessConfig } from "../config/answersHeadlessConfig";
 import Header from "../components/commons/header";
 import Footer from "../components/commons/footer";
 import { FaqCard } from "../components/cards/FaqCards";
@@ -41,17 +41,10 @@ export const config: TemplateConfig = {
     $id: "faqs",
     // Specifies the exact data that each generated document will contain. This data is passed in
     // directly as props to the default exported function.
-    fields: [
-      "id",
-      "uid",
-      "meta",
-      "name",
-      "question",
-      "answer"
-    ],
+    fields: ["id", "uid", "meta", "name", "question", "answer"],
     // Defines the scope of entities that qualify for this stream.
     filter: {
-      entityIds: ["global"] 
+      entityIds: ["global"],
     },
     // The entity language profiles that documents will be generated for.
     localization: {
@@ -61,14 +54,11 @@ export const config: TemplateConfig = {
   },
 };
 
-
 export const getPath: GetPath<TemplateProps> = () => {
   return "/faqs";
 };
 
-export const getHeadConfig: GetHeadConfig<
-  TemplateRenderProps
-> = ({
+export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
   relativePrefixToRoot,
   path,
   document,
@@ -88,32 +78,30 @@ const FaqPage: Template<TemplateRenderProps> = ({
   path,
   document,
 }) => {
-  const {
-    _site,
-    id,
-    name
-  } = document;
-  
-  
+  const { _site, id, name } = document;
+
   return (
     <>
-    {/* <Header headerLinks={headerProps} /> */}
-    <SearchHeadlessProvider searcher={searcher}>
-      <div className="px-4 py-8">
-        <div className="mx-auto flex max-w-5xl flex-col">
-			<SearchBar placeholder='Search...' />
-      <Navigation />
-			<DirectAnswer />
-			<SpellCheck />
-			<ResultsCount />
-			<AppliedFilters hiddenFields={['builtin.entityType']} />			
-			<VerticalResults CardComponent={FaqCard} />
-			<LocationBias />
+      {/* <Header headerLinks={headerProps} /> */}
+      <SearchHeadlessProvider searcher={searcher}>
+        <div className="px-4 py-8">
+          <div className="mx-auto flex max-w-5xl flex-col">
+            <SearchBar placeholder="Search..." />
+            <Navigation />
+            <DirectAnswer />
+            <SpellCheck />
+            <ResultsCount />
+            <AppliedFilters hiddenFields={["builtin.entityType"]} />
+
+            <VerticalResults CardComponent={FaqCard} />
+
+            
+            <LocationBias />
+          </div>
+          <Pagination />
         </div>
-        <Pagination />
-      </div>
-    </SearchHeadlessProvider>
-    {/* <Footer helpAndSupport={_site.c_useful_links} companyLinks={_site.c_company_links} footerLogo={_site.c_community_fibre_footer_logo} copyrightContent={_site.c_copyright_content} address={_site.c_community_fibre_address} /> */}
+      </SearchHeadlessProvider>
+      {/* <Footer helpAndSupport={_site.c_useful_links} companyLinks={_site.c_company_links} footerLogo={_site.c_community_fibre_footer_logo} copyrightContent={_site.c_copyright_content} address={_site.c_community_fibre_address} /> */}
     </>
   );
 };
