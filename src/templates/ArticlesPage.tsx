@@ -24,16 +24,14 @@ import {
   AlternativeVerticals,
   AppliedFilters,
   DirectAnswer,
-  LocationBias,
-} from "@yext/search-ui-react";
+  LocationBias
 
+} from "@yext/search-ui-react";
+import VerticalResults from "../components/VerticalResults";
 import { ArticlesCard } from "../components/cards/ArticlesCard";
 import Navigation from "../components/Navigation";
-import PageLayout from "../components/PageLayout";
 import { answersHeadlessConfig } from "../config/answersHeadlessConfig";
-import Header from "../components/commons/header";
-import Footer from "../components/commons/footer";
-import VerticalResults from "../components/VerticalResults";
+// import VerticalResults from "../components/VerticalResults";
 
 export const config: TemplateConfig = {
   stream: {

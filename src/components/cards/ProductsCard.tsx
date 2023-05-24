@@ -1,4 +1,3 @@
-import produce from "immer";
 import * as React from "react";
 import {
   CompositionMethod,
@@ -73,9 +72,9 @@ export function ProductsCard(props: StandardCardProps): JSX.Element {
    * @param limit
    * @returns The variable containing the truncated Description.
    */
-  function limit(string = " ", limit = 0) {
-    return string.substring(0, limit);
-  }
+  // function limit(string = " ", limit = 0) {
+  //   return string.substring(0, limit);
+  // }
   // console.log(result, "result");
 
   const Products: any = result.rawData;

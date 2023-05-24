@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { CardProps } from "../../models/cardComponent";
 
 export interface StandardCardConfig {
@@ -36,11 +36,6 @@ const builtInCssClasses: StandardCardCssClasses = {
   title: "font-bold ArticlesTitle",
 };
 
-interface CtaData {
-  label: string;
-  link: string;
-  linkType: string;
-}
 
 /**
  * This Component renders the base result card.
@@ -48,7 +43,7 @@ interface CtaData {
  * @param props - An object containing the result itself.
  */
 export function ArticlesCard(props: StandardCardProps): JSX.Element {
-  const { configuration, result, customCssClasses } = props;
+  const { result } = props;
   const cssClasses = builtInCssClasses;
 
   const ArticleCard: any = result.rawData;
@@ -69,25 +64,25 @@ export function ArticlesCard(props: StandardCardProps): JSX.Element {
   const greeting = limit(ArticleDescription, 200);
   // console.log(greeting, "greeting");
 
-  const [categories_data, setFaq_Data] = useState([]);
-  const [faqClass, setFaqClass] = useState("");
-  const [leftFaqLen, setLeftFaqLen] = useState(0);
-  const [rightFaqLen, setRightFaqLen] = useState(0);
-  const [selected, setselected] = useState(null);
+  // const [categories_data, setFaq_Data] = useState([]);
+  // const [faqClass, setFaqClass] = useState("");
+  // const [leftFaqLen, setLeftFaqLen] = useState(0);
+  // const [rightFaqLen, setRightFaqLen] = useState(0);
+  // const [selected, setselected] = useState(null);
 
-  const isShowContent = (e: any, index: any) => {
-    setselected(index);
-    let parent = e.target.parentNode;
-    if (parent.classList.contains("opened")) {
-      setFaqClass("");
-    } else {
-      var acc = document.getElementsByClassName("faq-block");
-      for (let s = 0; s < acc?.length; s++) {
-        acc[s].classList.remove("opened");
-      }
-      setFaqClass("opened");
-    }
-  };
+  // const isShowContent = (e: any, index: any) => {
+  //   setselected(index);
+  //   const parent = e.target.parentNode;
+  //   if (parent.classList.contains("opened")) {
+  //     setFaqClass("");
+  //   } else {
+  //     const acc = document.getElementsByClassName("faq-block");
+  //     for (let s = 0; s < acc?.length; s++) {
+  //       acc[s].classList.remove("opened");
+  //     }
+  //     setFaqClass("opened");
+  //   }
+  // };
   return (
     <>
       {/* <div className="faq-sec bg-light">
@@ -126,7 +121,7 @@ export function ArticlesCard(props: StandardCardProps): JSX.Element {
         </div>
       </div> */}
 
-      <div style={{ width: "50%", marginRight: "10px" , display:"flex"}}>
+      <div style={{ width: "50%", marginRight: "10px", display: "flex" }}>
         <div className={cssClasses.container}>
           <img
             src={ArticleImageUrl}

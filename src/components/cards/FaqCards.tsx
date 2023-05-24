@@ -1,9 +1,5 @@
-import { useSearchActions } from "@yext/search-headless-react";
-import { useContext } from "react";
 import { CardProps } from "../../models/cardComponent";
-import { useEffect, useState } from "react";
 import * as React from "react";
-// import 'react-loading-skeleton/dist/skeleton.css';
 import { Accordion, AccordionItem } from "react-light-accordion";
 
 //prettier-ignore
