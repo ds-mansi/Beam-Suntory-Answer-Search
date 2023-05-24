@@ -80,6 +80,38 @@ export default function VerticalResults(props: VerticalResultsProps): JSX.Elemen
   if (verticalResults.length === 0 && displayAllOnNoResults) {
     results = allResultsForVertical;
     resultsCount = allResultsCountForVertical;
+    const aleternateVerticals = useSearchState(
+      (state) => state.vertical.noResults?.alternativeVerticals
+    );
+    const filterVariable =
+      aleternateVerticals?.filter(
+        (filtredResulta) => filtredResulta.resultsCount > 0
+      ) || [];
+
+      const alternateVerticals = filterVariable.length > 0 ?  filterVariable.map((results:any)=>{
+        console.log(results.verticalKey,"filterVariable");
+        return(
+          <>
+          <a href={`/${results.verticalKey}`}>
+          <li>{results.verticalKey}</li>
+          </a>
+          </>
+        )
+      }) :null;
+      
+    return (
+      <div className='noResultFound'>
+        {filterVariable.length > 0 ? 
+        (
+         <div>
+          <p>No result found showing alternate vertical instead : </p>
+          <ul>{alternateVerticals}</ul> 
+        </div>
+        )
+        : <p>No results found</p>}
+        
+      </div>
+    )
   }
 
   return (

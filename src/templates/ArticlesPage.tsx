@@ -18,7 +18,6 @@ import {
 import {
   SearchBar,
   StandardCard,
-  VerticalResults,
   SpellCheck,
   ResultsCount,
   Pagination,
@@ -34,6 +33,7 @@ import PageLayout from "../components/PageLayout";
 import { answersHeadlessConfig } from "../config/answersHeadlessConfig";
 import Header from "../components/commons/header";
 import Footer from "../components/commons/footer";
+import VerticalResults from "../components/VerticalResults";
 
 export const config: TemplateConfig = {
   stream: {
