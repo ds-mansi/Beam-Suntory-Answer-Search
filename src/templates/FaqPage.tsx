@@ -18,7 +18,6 @@ import {
 import {
   SearchBar,
   StandardCard,
-  VerticalResults,
   SpellCheck,
   ResultsCount,
   Pagination,
@@ -35,6 +34,7 @@ import { answersHeadlessConfig } from "../config/answersHeadlessConfig";
 import Header from "../components/commons/header";
 import Footer from "../components/commons/footer";
 import { FaqCard } from "../components/cards/FaqCards";
+import VerticalResults from "../components/VerticalResults";
 
 export const config: TemplateConfig = {
   stream: {
@@ -95,7 +95,6 @@ const FaqPage: Template<TemplateRenderProps> = ({
 
             <VerticalResults CardComponent={FaqCard} />
 
-            
             <LocationBias />
           </div>
           <Pagination />
