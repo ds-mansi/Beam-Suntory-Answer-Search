@@ -32,8 +32,7 @@ import { ProductsCard } from '../components/cards/ProductsCard';
 import Navigation from '../components/Navigation';
 import PageLayout from "../components/PageLayout";
 import { answersHeadlessConfig } from '../config/answersHeadlessConfig';
-import Header from "../components/commons/header";
-import Footer from "../components/commons/footer";
+
 
 export const config: TemplateConfig = {
   stream: {
