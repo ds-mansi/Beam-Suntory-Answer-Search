@@ -33,7 +33,7 @@ export interface StandardCardCssClasses {
 
 const builtInCssClasses: StandardCardCssClasses = {
   container:
-    "justify-between border rounded-lg mb-4 p-4 shadow-sm flex flex-row ProductVerticalContainer",
+    "justify-between border rounded-lg mb-4 p-4 shadow-sm ProductVerticalContainer",
   header: "text-grey-800 ProductHeaderClass text-2xl font-bold",
   body: "flex justify-end pt-2.5",
   descriptionContainer: "w-full text-base",
@@ -47,11 +47,11 @@ const builtInCssClasses: StandardCardCssClasses = {
   ProductPriceClass: "ProductPrice flex flex-row",
 };
 
-interface CtaData {
-  label: string;
-  link: string;
-  linkType: string;
-}
+// interface CtaData {
+//   label: string;
+//   link: string;
+//   linkType: string;
+// }
 
 /**
  * This Component renders the base result card.
@@ -59,7 +59,7 @@ interface CtaData {
  * @param props - An object containing the result itself.
  */
 export function ProductsCard(props: StandardCardProps): JSX.Element {
-  const { configuration, result, customCssClasses, cssCompositionMethod } =
+  const {  result, customCssClasses, cssCompositionMethod } =
     props;
   const cssClasses = useComposedCssClasses(
     builtInCssClasses,
@@ -80,7 +80,7 @@ export function ProductsCard(props: StandardCardProps): JSX.Element {
 
   const Products: any = result.rawData;
 
-  const productNumber = Products.heading ? Products.heading : "Product Heading"; // Name of the products
+  //const productNumber = Products.heading ? Products.heading : "Product Heading"; // Name of the products
   const productName = Products.c_productCard.heading
     ? Products.c_productCard.heading
     : "Product Name"; // Description of the Products
@@ -96,15 +96,16 @@ export function ProductsCard(props: StandardCardProps): JSX.Element {
 
   // console.log(Products.c_productCard.cta.link, "New123");
 
-  function renderTitle(title: string) {
-    return <div className={cssClasses.title}>{title}</div>;
-  }
+  // function renderTitle(title: string) {
+  //   return <div className={cssClasses.title}>{title}</div>;
+  // }
 
   return (
     <>
+    <div style={{ width:"50%",marginRight:'10px'}}>
       <div className={cssClasses.container}>
-        <img src={productImage}></img>
-        <div>
+        <img src={productImage} style={{height:"150px",margin:"auto"}}></img>
+        <div style={{textAlign:"center"}}>
           <h3 className={cssClasses.header}>{Products.name}</h3>
           <h4 className="font-semibold">{productName}</h4>
           <p>{productDescription}</p>
@@ -112,6 +113,7 @@ export function ProductsCard(props: StandardCardProps): JSX.Element {
             <a href={Products.c_productCard.cta.link}>{productBtn}</a>
           </p>
         </div>
+      </div>
       </div>
     </>
   );

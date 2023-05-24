@@ -60,7 +60,7 @@ const ProductsSection: SectionComponent = function (
     props.compositionmethod
   );
   const { results, cardConfig, header } = props;
-  const latestQuery = useSearchState((state) => state.query.mostRecentSearch);
+  // const latestQuery = useSearchState((state) => state.query.mostRecentSearch);
   const verticalResults: any = useSearchState((state) => state.universal);
   // console.log('ProductVerticalResults', verticalResults);
   const ProductVerticalResults: any = verticalResults.verticals[0].results;
@@ -87,10 +87,10 @@ const ProductsSection: SectionComponent = function (
     // console.log(productName, "productsection");
     return (
       <>
-        <div>
-          {/* <img className='ProductsImage' src={ProductImage}></img> */}
+        <div style={{display:"flex"}} >
+          <img className='ProductsImage' src={ProductImage}></img>
           <h1 className={builtInCssClasses.title}>{productName}</h1>
-          <img src={productImage.url} />
+          <img src={productImage.url} style={{ height: "50px" }} />
           <p>{productDescription}</p>
           <a target="_blank" href={productCta.url}>
             <div className={cssClasses.ctaButton}>

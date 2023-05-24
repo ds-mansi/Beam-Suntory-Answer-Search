@@ -19,14 +19,14 @@
 }
 
 /* FAQ CSS - Starts*/
-.faq-sec{
+/* .faq-sec{
   @apply py-5 lg:py-[60px]
-}
+} */
 .faq-sec .container{
   @apply max-w-[1240px]
 }
 .faq-blocks{
-  @apply px-4 lg:px-[50px] py-2 lg:py-[60px] flex flex-wrap items-start max-w-[1200px] mx-auto shadow-[3.5px_6.06px_10px_rgba(1,1,1,0.18)] lg:shadow-[3.5px_6.06px_21px_rgba(1,1,1,0.18)] rounded-[5px] lg:rounded-[30px] justify-between mt-6 lg:mt-11
+  @apply px-4 lg:px-[50px]  lg:py-[60px] flex flex-wrap items-start max-w-[1200px] mx-auto shadow-[3.5px_6.06px_10px_rgba(1,1,1,0.18)] lg:shadow-[3.5px_6.06px_21px_rgba(1,1,1,0.18)] rounded-[5px] lg:rounded-[30px] justify-between mt-6 lg:mt-11
 }
 .faq-blocks .left-faq{
   @apply w-full lg:w-[calc(50%_-_30px)]

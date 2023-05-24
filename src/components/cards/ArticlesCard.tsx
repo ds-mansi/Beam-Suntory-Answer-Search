@@ -25,8 +25,8 @@ export interface StandardCardCssClasses {
 
 const builtInCssClasses: StandardCardCssClasses = {
   container:
-    "flex flex-col justify-between border rounded-lg mb-4 p-4 shadow-sm ArticlesCardContainer",
-  header: "flex text-gray-800",
+    "justify-between border rounded-lg mb-4 p-4 shadow-sm ArticleVerticalContainer",
+  header: "text-grey-800 ProductHeaderClass text-2xl font-bold",
   body: "flex justify-end pt-2.5",
   descriptionContainer: "w-full text-base",
   ctaContainer: "flex flex-col justify-end ml-4",
@@ -126,11 +126,26 @@ export function ArticlesCard(props: StandardCardProps): JSX.Element {
         </div>
       </div> */}
 
-      <div>
+      <div style={{ width: "50%", marginRight: "10px" , display:"flex"}}>
+        <div className={cssClasses.container}>
+          <img
+            src={ArticleImageUrl}
+            style={{ height: "150px", margin: "auto" }}
+          ></img>
+          <div style={{ textAlign: "center" }}>
+            <p>{ArticleDescription}</p>
+            <p>
+              <a href={ArticleCard.c_articleCard.cTA.link}>{ArticleBtn}</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* <div>
         <img src={ArticleImageUrl} style={{ height: "100px" }} />
         <p>{ArticleDescription}</p>
         <a href={ArticleCard.c_articleCard.cTA.link}>{ArticleBtn}</a>
-      </div>
+      </div> */}
     </>
   );
 }

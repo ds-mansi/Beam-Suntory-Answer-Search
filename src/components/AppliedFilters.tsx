@@ -7,6 +7,7 @@ import { GroupedFilters } from '../models/groupedFilters';
 import { getGroupedAppliedFilters } from '../utils/appliedfilterutils';
 import { useRef } from 'react';
 import classNames from 'classnames';
+import * as React from 'react';
 
 export interface AppliedFiltersCssClasses {
   appliedFiltersContainer?: string,
