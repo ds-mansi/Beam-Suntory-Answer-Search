@@ -18,8 +18,7 @@ import {
 import {
   SearchBar,
   StandardCard,
-  VerticalResults,
-  SpellCheck,
+    SpellCheck,
   ResultsCount,
   Pagination,
   AlternativeVerticals,
@@ -27,6 +26,7 @@ import {
   DirectAnswer,
   LocationBias
 } from "@yext/search-ui-react";
+import VerticalResults from "../components/VerticalResults";
 
 import { ProductsCard } from '../components/cards/ProductsCard';
 import Navigation from '../components/Navigation';
