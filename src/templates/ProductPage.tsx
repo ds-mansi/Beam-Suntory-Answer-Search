@@ -21,8 +21,7 @@ import {
   SpellCheck,
   ResultsCount,
   Pagination,
-  AlternativeVerticals,
-  AppliedFilters,
+    AppliedFilters,
   DirectAnswer,
   LocationBias,
 } from "@yext/search-ui-react";
