@@ -94,7 +94,6 @@ const FaqPage: Template<TemplateRenderProps> = ({
 
             <VerticalResults CardComponent={FaqCard} />
 
-            
             <LocationBias />
           </div>
           <Pagination />

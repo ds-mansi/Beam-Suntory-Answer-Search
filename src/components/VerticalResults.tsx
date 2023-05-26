@@ -51,22 +51,74 @@ export function VerticalResultsDisplay(
     customCssClasses,
     cssCompositionMethod
   );
-
+  const key = useSearchState((state) => state.vertical.verticalKey);
+  // const taste=useSearchState(state=>state.vertical.results);
   if (results.length === 0) {
     return null;
   }
+
 
   const resultsClassNames = classNames({
     [cssClasses.results___loading ?? ""]: isLoading,
   });
 
   return (
-    <div className={resultsClassNames}>
-      {results &&
-        results.map((result) =>
-          renderResult(CardComponent, cardConfig, result)
-        )}
-    </div>
+    <>
+      {key === "product_reciepes" ? (
+        <select>
+          {results &&
+            results.map((result) =>
+              renderResult(CardComponent, cardConfig, result)
+            )}
+        </select>
+      ) : (
+        <div className={resultsClassNames}>
+          {results &&
+            results.map((result) =>
+              renderResult(CardComponent, cardConfig, result)
+            )}
+        </div>
+      )}
+
+      
+      <select>
+        {results?.map((t: any) => {
+          console.log(t.rawData, "i am hellop");
+          return (
+            <>
+              {t?.rawData?.c_occasionRelation?.map((item: any,key : index) => {
+                console.log("object", item);
+                return (
+                  <>
+                  <div key={index}>
+                  <option>{item.name}</option>
+                  </div>
+                   
+                  </>
+                );
+              })}
+            </>
+          );
+        })}
+      </select>
+      <select>
+        {results?.map((o: any) => {
+          // console.log(o.rawData.c_tasteRelation, "i am here");
+          return (
+            <>
+              {o?.rawData?.c_tasteRelation?.map((item: any, index: any) => {
+                console.log("object", item);
+                return (
+                  <>
+                    <option>{item.name}</option>
+                  </>
+                );
+              })}
+            </>
+          );
+        })}
+      </select>
+    </>
   );
 }
 
@@ -104,6 +156,7 @@ export default function VerticalResults(
   props: VerticalResultsProps
 ): JSX.Element | null {
   const {
+    displayAllOnNoResults = true,
     allowPagination = true,
     ...otherProps
   } = props;
@@ -120,47 +173,12 @@ export default function VerticalResults(
       (state) => state.vertical?.noResults?.allResultsForVertical.resultsCount
     ) || 0;
   const isLoading = useSearchState((state) => state.searchStatus.isLoading);
-  const aleternateVerticals = useSearchState(
-    (state) => state.vertical.noResults?.alternativeVerticals
-  );
-  
+
   let results = verticalResults;
   let resultsCount = verticalResultsCount;
-  if (verticalResults.length === 0 && !isLoading) {
+  if (verticalResults.length === 0 && displayAllOnNoResults) {
     results = allResultsForVertical;
     resultsCount = allResultsCountForVertical;
-    
-    const filterVariable =
-      aleternateVerticals?.filter(
-        (filtredResulta) => filtredResulta.resultsCount > 0
-      ) || [];
-
-    const alternateVerticals =
-      filterVariable.length > 0
-        ? filterVariable.map((results: any) => {
-            // console.log(results.verticalKey,"filterVariable");
-            return (
-              <>
-                <a href={`/${results.verticalKey}`}>
-                  <li>{results.verticalKey}</li>
-                </a>
-              </>
-            );
-          })
-        : null;
-
-    return (
-      <div className="noResultFound">
-        {filterVariable.length > 0 ? (
-          <div>
-            <p>No result found showing alternate vertical instead : </p>
-            <ul>{alternateVerticals}</ul>
-          </div>
-        ) : (
-          <p>No results found</p>
-        )}
-      </div>
-    );
   }
 
   return (

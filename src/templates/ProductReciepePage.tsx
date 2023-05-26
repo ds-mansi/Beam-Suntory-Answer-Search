@@ -25,7 +25,7 @@ import {
   LocationBias,
 } from "@yext/search-ui-react";
 import VerticalResults from "../components/VerticalResults";
-import { ProductsCard } from "../components/cards/ProductsCard";
+import { ProductReciepeCard } from "../components/cards/ProductReciepeCards";
 import Navigation from "../components/Navigation";
 import { answersHeadlessConfig } from "../config/answersHeadlessConfig";
 
@@ -48,7 +48,7 @@ export const config: TemplateConfig = {
 };
 
 export const getPath: GetPath<TemplateProps> = () => {
-  return "/products";
+  return "/product_reciepes";
 };
 
 export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
@@ -63,16 +63,16 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
   };
 };
 
-answersHeadlessConfig.verticalKey = "products";
+answersHeadlessConfig.verticalKey = "product_reciepes";
 const searcher = provideHeadless(answersHeadlessConfig);
 
-const ProductPage: Template<TemplateRenderProps> = ({
+const ProductReciepePage: Template<TemplateRenderProps> = ({
   relativePrefixToRoot,
   path,
   document,
 }) => {
-  const { _site, id, name } = document;
-
+  const { _site, id, name, } = document;
+  console.log(document,"ce_productRecipes");
   return (
     <>
       {/* <Header headerLinks={headerProps} /> */}
@@ -85,7 +85,7 @@ const ProductPage: Template<TemplateRenderProps> = ({
             <SpellCheck />
             <ResultsCount />
             <AppliedFilters hiddenFields={["builtin.entityType"]} />
-            <VerticalResults CardComponent={ProductsCard} />
+            <VerticalResults CardComponent={ProductReciepeCard} />
             <LocationBias />
           </div>
           <Pagination />
@@ -96,4 +96,4 @@ const ProductPage: Template<TemplateRenderProps> = ({
   );
 };
 
-export default ProductPage;
+export default ProductReciepePage;

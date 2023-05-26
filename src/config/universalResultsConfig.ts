@@ -7,6 +7,7 @@ import { LocationCard } from "../components/cards/LocationCard";
 import LocationSection from "../sections/LocationSection";
 import ProductsSection from "../sections/ProductSection";
 import StandardSection from "../sections/StandardSection";
+import { ProductReciepeCard } from "../components/cards/ProductReciepeCards";
 
 export type UniversalResultsConfig = Record<string, VerticalConfig>;
 
@@ -35,6 +36,15 @@ export const universalResultsConfig: UniversalResultsConfig = {
     viewAllButton: true,
     cardConfig: {
       CardComponent: FaqCard,
+      showOrdinal: false,
+    },
+  },
+  product_reciepes: {
+    SectionComponent: StandardSection,
+    label: "Reciepes",
+    viewAllButton: true,
+    cardConfig: {
+      CardComponent: ProductReciepeCard,
       showOrdinal: false,
     },
   },
