@@ -86,14 +86,11 @@ export function VerticalResultsDisplay(
           console.log(t.rawData, "i am hellop");
           return (
             <>
-              {t?.rawData?.c_occasionRelation?.map((item: any,key : index) => {
+              {t?.rawData?.c_occasionRelation?.map((item: any) => {
                 console.log("object", item);
                 return (
                   <>
-                  <div key={index}>
-                  <option>{item.name}</option>
-                  </div>
-                   
+                    <option>{item.name}</option>
                   </>
                 );
               })}
