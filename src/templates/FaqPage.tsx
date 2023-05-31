@@ -34,6 +34,7 @@ import { answersHeadlessConfig } from "../config/answersHeadlessConfig";
 import Header from "../components/commons/header";
 import Footer from "../components/commons/footer";
 import { FaqCard } from "../components/cards/FaqCards";
+import VerticalResults from "../components/VerticalResults";
 
 export const config: TemplateConfig = {
   stream: {

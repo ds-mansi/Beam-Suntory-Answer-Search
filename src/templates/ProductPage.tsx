@@ -19,15 +19,16 @@ import {
   SpellCheck,
   ResultsCount,
   Pagination,
-  AlternativeVerticals,
   AppliedFilters,
   DirectAnswer,
   LocationBias,
 } from "@yext/search-ui-react";
+
 import VerticalResults from "../components/VerticalResults";
 import { ProductsCard } from "../components/cards/ProductsCard";
 import Navigation from "../components/Navigation";
 import { answersHeadlessConfig } from "../config/answersHeadlessConfig";
+
 
 export const config: TemplateConfig = {
   stream: {
