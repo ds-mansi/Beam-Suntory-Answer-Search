@@ -57,10 +57,18 @@ export function VerticalResultsDisplay(
     return null;
   }
 
-
   const resultsClassNames = classNames({
     [cssClasses.results___loading ?? ""]: isLoading,
   });
+
+  const occassiondata = results?.map((t: any) => {
+    return t.rawData.c_occasionRelation;
+  });
+
+  const taste = results?.map((o: any) => {
+    return o.rawData.c_tasteRelation;
+  });
+  console.log(taste, "c_tasteRelation");
 
   return (
     <>
@@ -79,42 +87,33 @@ export function VerticalResultsDisplay(
             )}
         </div>
       )}
+      {key === "product_reciepes" ? (
+        <select>
+          {occassiondata[0].map((t: any) => {
+            return (
+              <>
+                <option>{t.name}</option>
+              </>
+            );
+          })}
+        </select>
+      ) : (
+        ""
+      )}
 
-      
-      <select>
-        {results?.map((t: any) => {
-          console.log(t.rawData, "i am hellop");
-          return (
-            <>
-              {t?.rawData?.c_occasionRelation?.map((item: any) => {
-                console.log("object", item);
-                return (
-                  <>
-                    <option>{item.name}</option>
-                  </>
-                );
-              })}
-            </>
-          );
-        })}
-      </select>
-      <select>
-        {results?.map((o: any) => {
-          // console.log(o.rawData.c_tasteRelation, "i am here");
-          return (
-            <>
-              {o?.rawData?.c_tasteRelation?.map((item: any, index: any) => {
-                console.log("object", item);
-                return (
-                  <>
-                    <option>{item.name}</option>
-                  </>
-                );
-              })}
-            </>
-          );
-        })}
-      </select>
+      {key === "product_reciepes" ? (
+        <select>
+          {taste[0].map((t: any) => {
+            return (
+              <>
+                <option>{t.name}</option>
+              </>
+            );
+          })}
+        </select>
+      ) : (
+        ""
+      )}
     </>
   );
 }
