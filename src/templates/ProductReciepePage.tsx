@@ -12,8 +12,6 @@ import "../index.css";
 import {
   SearchHeadlessProvider,
   provideHeadless,
-  HeadlessConfig,
-  SandboxEndpoints,
 } from "@yext/search-headless-react";
 import {
   SearchBar,
@@ -24,18 +22,16 @@ import {
   AlternativeVerticals,
   AppliedFilters,
   DirectAnswer,
-  LocationBias
-
+  LocationBias,
 } from "@yext/search-ui-react";
 import VerticalResults from "../components/VerticalResults";
-import { ArticlesCard } from "../components/cards/ArticlesCard";
+import { ProductReciepeCard } from "../components/cards/ProductReciepeCards";
 import Navigation from "../components/Navigation";
 import { answersHeadlessConfig } from "../config/answersHeadlessConfig";
-// import VerticalResults from "../components/VerticalResults";
 
 export const config: TemplateConfig = {
   stream: {
-    $id: "articles",
+    $id: "product",
     // Specifies the exact data that each generated document will contain. This data is passed in
     // directly as props to the default exported function.
     fields: ["id", "uid", "meta", "name"],
@@ -52,7 +48,7 @@ export const config: TemplateConfig = {
 };
 
 export const getPath: GetPath<TemplateProps> = () => {
-  return "/articles";
+  return "/product_reciepes";
 };
 
 export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
@@ -67,22 +63,16 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
   };
 };
 
-answersHeadlessConfig.verticalKey = "articles";
+answersHeadlessConfig.verticalKey = "product_reciepes";
 const searcher = provideHeadless(answersHeadlessConfig);
 
-const ArticlesPage: Template<TemplateRenderProps> = ({
+const ProductReciepePage: Template<TemplateRenderProps> = ({
   relativePrefixToRoot,
   path,
   document,
 }) => {
-  const { _site } = document;
-  // const headerProps = _site.c_header_links;
-  // console.log(_site.c_useful_links.headerLinksHeading,"Sites");
-  // const {
-  //   _site
-  // } = document;
-  // console.log(document, "doc");
-
+  const { _site, id, name, } = document;
+  console.log(document,"ce_productRecipes");
   return (
     <>
       {/* <Header headerLinks={headerProps} /> */}
@@ -95,7 +85,7 @@ const ArticlesPage: Template<TemplateRenderProps> = ({
             <SpellCheck />
             <ResultsCount />
             <AppliedFilters hiddenFields={["builtin.entityType"]} />
-            <VerticalResults CardComponent={ArticlesCard} />
+            <VerticalResults CardComponent={ProductReciepeCard} />
             <LocationBias />
           </div>
           <Pagination />
@@ -106,4 +96,4 @@ const ArticlesPage: Template<TemplateRenderProps> = ({
   );
 };
 
-export default ArticlesPage;
+export default ProductReciepePage;

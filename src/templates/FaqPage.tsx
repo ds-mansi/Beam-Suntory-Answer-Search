@@ -26,7 +26,7 @@ import {
   DirectAnswer,
   LocationBias,
 } from "@yext/search-ui-react";
-
+import VerticalResults from "../components/VerticalResults";
 import { ProductsCard } from "../components/cards/ProductsCard";
 import Navigation from "../components/Navigation";
 import PageLayout from "../components/PageLayout";

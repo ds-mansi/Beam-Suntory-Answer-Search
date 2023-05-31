@@ -18,7 +18,7 @@ export interface CardConfig extends CardConfigTypes {
  */
 export interface CardProps {
   result: Result,
-  configuration: CardConfigTypes
+  // configuration: CardConfigTypes
 }
 
 /**

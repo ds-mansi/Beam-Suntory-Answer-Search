@@ -5,6 +5,8 @@ import {
 } from "../../hooks/useComposedCssClasses";
 import { CardProps } from "../../models/cardComponent";
 // import '../../sass/style.css';
+import "../../../src/index.css";
+import Select from "react-select";
 
 export interface StandardCardConfig {
   showOrdinal?: boolean;
@@ -46,20 +48,13 @@ const builtInCssClasses: StandardCardCssClasses = {
   ProductPriceClass: "ProductPrice flex flex-row",
 };
 
-// interface CtaData {
-//   label: string;
-//   link: string;
-//   linkType: string;
-// }
-
 /**
  * This Component renders the base result card.
  *
  * @param props - An object containing the result itself.
  */
-export function ProductsCard(props: StandardCardProps): JSX.Element {
-  const {  result, customCssClasses, cssCompositionMethod } =
-    props;
+export function ProductReciepeCard(props: StandardCardProps): JSX.Element {
+  const { result, customCssClasses, cssCompositionMethod } = props;
   const cssClasses = useComposedCssClasses(
     builtInCssClasses,
     customCssClasses,
@@ -72,48 +67,15 @@ export function ProductsCard(props: StandardCardProps): JSX.Element {
    * @param limit
    * @returns The variable containing the truncated Description.
    */
-  // function limit(string = " ", limit = 0) {
-  //   return string.substring(0, limit);
-  // }
-  // console.log(result, "result");
 
-  const Products: any = result.rawData;
-
-  //const productNumber = Products.heading ? Products.heading : "Product Heading"; // Name of the products
-  const productName = Products.c_productCard.heading
-    ? Products.c_productCard.heading
-    : "Product Name"; // Description of the Products
-  const productDescription = Products.c_productCard.description
-    ? Products.c_productCard.description
-    : "Product Description"; // Description of the Products
-  const productImage = Products.c_productCard
-    ? Products.c_productCard.image.url
-    : "#";
-  const productBtn = Products.c_productCard.cta.label
-    ? Products.c_productCard.cta.label
-    : "Product cta";
-
-  // console.log(Products.c_productCard.cta.link, "New123");
-
-  // function renderTitle(title: string) {
-  //   return <div className={cssClasses.title}>{title}</div>;
-  // }
+  const allproduct: any = result.rawData;
+  console.log(allproduct, "name");
 
   return (
     <>
-    <div style={{ width:"50%",marginRight:'10px'}}>
-      <div className={cssClasses.container}>
-        <img src={productImage} style={{height:"150px",margin:"auto"}}></img>
-        <div style={{textAlign:"center"}}>
-          <h3 className={cssClasses.header}>{Products.name}</h3>
-          <h4 className="font-semibold">{productName}</h4>
-          <p>{productDescription}</p>
-          <p>
-            <a href={Products.c_productCard.cta.link}>{productBtn}</a>
-          </p>
-        </div>
-      </div>
-      </div>
+      <option value="product name">{allproduct.name}</option>
+      
+      
     </>
   );
 }

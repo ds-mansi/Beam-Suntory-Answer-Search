@@ -12,8 +12,6 @@ import "../index.css";
 import {
   SearchHeadlessProvider,
   provideHeadless,
-  HeadlessConfig,
-  SandboxEndpoints,
 } from "@yext/search-headless-react";
 import {
   SearchBar,
@@ -26,13 +24,11 @@ import {
   LocationBias,
 } from "@yext/search-ui-react";
 
+import VerticalResults from "../components/VerticalResults";
 import { ProductsCard } from "../components/cards/ProductsCard";
 import Navigation from "../components/Navigation";
-import PageLayout from "../components/PageLayout";
 import { answersHeadlessConfig } from "../config/answersHeadlessConfig";
-import Header from "../components/commons/header";
-import Footer from "../components/commons/footer";
-import VerticalResults from "../components/VerticalResults";
+
 
 export const config: TemplateConfig = {
   stream: {
